@@ -25,7 +25,7 @@ $favicon = App\Models\favicon::find(1);
     <link href="{{ asset('frontend/assets/css/responsive.css')}}" rel="stylesheet">
     <link href="{{ asset('frontend/assets/css/darkmode.css')}}" rel="stylesheet">
   </head>
-  <body class="active-dark">
+  <body>
   	 <!--Start Preloader -->
  <!--div class="onloadpage" id="page_loader">
 	<div class="pre-content">

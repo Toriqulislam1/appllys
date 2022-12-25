@@ -1,7 +1,7 @@
 @extends('frontend.front_master')
 @section('content')
 @section('title')
-Technoval BD
+Appllys Technologies
 @endsection
 
 <!--Start Privacy Policy-->
@@ -12,7 +12,7 @@ Technoval BD
 
 			<div class="pvcpolcy">
 <h4 class="mb10">1. What Is a Privacy Policy?</h4>
-<p class="mb10"><strong>TECHNOVAL LIMITED</strong> (the “Company”) is committed to protecting the privacy of its users. This Privacy Policy (“Privacy Policy”) is designed to help you understand what information we gather, how we use it, what we do to protect it, and to assist you in making informed decisions when using our website.  Unless otherwise indicated below, this Privacy Policy applies to any website that references this Privacy Policy, any Company website, as well as any data the Company may collect across partnered and unaffiliated sites.</p>
+<p class="mb10"><strong>APPLLYS TECHNOLOGIES</strong>  is committed to protecting the privacy of its users. This Privacy Policy (“Privacy Policy”) is designed to help you understand what information we gather, how we use it, what we do to protect it, and to assist you in making informed decisions when using our website.  Unless otherwise indicated below, this Privacy Policy applies to any website that references this Privacy Policy, any Company website, as well as any data the Company may collect across partnered and unaffiliated sites.</p>
 
 <p>For purposes of this Agreement, the terms “we,” “us,” and “our” refer to the Company. “You” refers to you, as a user of the website. </p>
 
@@ -71,7 +71,7 @@ Technoval BD
 <p class="mb10">There may be several online forms present on our website where you are able to submit personally identifiable information in order to express interest in our business or submit an inquiry regarding our business.  These forms may appear as RFP forms, Contact Us forms, Wedding RFP forms, or other similar forms that request your information before submitting. When you contact us using a form on our website, we collect information that identifies you, such as your name, job title, business name, phone number, email address, and other personally identifiable information. Some of this information is required and other information is optional. This information is used to better address your inquiry and is not used for marketing purposes or shared with other third party companies.  If you would prefer that we do not collect this information then simply do not fill out the form.  If you have already submitted your information through a form and would like to be removed, please email us.</p>
 
 <h4 class="mb10 mt30">Last Updated</h4>
-<p>This Privacy Policy was last updated on Wed, 01 Sep, 2021.</p>
+<p>This Privacy Policy was last updated on Wed, 01 Sep, 2022.</p>
 
 </div>
         </div>        

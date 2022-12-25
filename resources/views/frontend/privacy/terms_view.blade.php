@@ -12,7 +12,7 @@ Technoval BD
 
 			<div class="pvcpolcy">
 <h4 class="mb10">1. What Is a Terms and Conditions?</h4>
-<p class="mb10"><strong>TECHNOVAL LIMITED</strong> (the “Company”) is committed to protecting the privacy of its users. This Terms and Conditions (“Terms and Conditions”) is designed to help you understand what information we gather, how we use it, what we do to protect it, and to assist you in making informed decisions when using our website.  Unless otherwise indicated below, this Terms and Conditions applies to any website that references this Terms and Conditions, any Company website, as well as any data the Company may collect across partnered and unaffiliated sites.</p>
+<p class="mb10"><strong>APPLLYS TECHNOLOGIES</strong>  is committed to protecting the privacy of its users. This Terms and Conditions (“Terms and Conditions”) is designed to help you understand what information we gather, how we use it, what we do to protect it, and to assist you in making informed decisions when using our website.  Unless otherwise indicated below, this Terms and Conditions applies to any website that references this Terms and Conditions, any Company website, as well as any data the Company may collect across partnered and unaffiliated sites.</p>
 
 <p>For purposes of this Agreement, the terms “we,” “us,” and “our” refer to the Company. “You” refers to you, as a user of the website. </p>
 

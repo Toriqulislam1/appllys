@@ -20,7 +20,7 @@ $setting = App\Models\Setting::find(1);
 </li>
 <li>
 <span><i class="fas fa-phone-alt"></i></span>
-<p>Phone <span> <a href="tel:+10000000000">{{ $setting->phone_one}}</a></span></p>
+<p>Phone <span> <a href="tel:+8801982181819">{{ $setting->phone_one}}</a></span></p>
 </li>
 <li>
 <span><i class="fas fa-map-marker-alt"></i></span>
@@ -31,14 +31,15 @@ $setting = App\Models\Setting::find(1);
 <div class="col-lg-2 col-sm-6">
 <h5>Company</h5>
 <ul class="footer-address-list link-hover">
-<li><a href="javascript:void(0)">Privacy Policy</a></li>
-<li><a href="javascript:void(0)">Terms and Conditions</a></li>
+<li><a href="{{ route('contact-us')}}" target="_blank">Contact</a></li>
+<li><a href="{{ route('privacy-view')}}">Privacy Policy</a></li>
+<li><a href="{{ route('terms-view')}}">Terms and Conditions</a></li>
 
 </ul>
 </div>
 <div class="col-lg-4 col-sm-6 footer-blog-">
 <h5>Our locations</h5>
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29218.029188915905!2d90.37022879999999!3d23.73833265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1670242169791!5m2!1sen!2sbd" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.9238523017184!2d90.3865261!3d23.7500947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8bad83db63f%3A0xa12ab9c54b16de68!2s158%20Green%20Rd%2C%20Dhaka%201205!5e0!3m2!1sen!2sbd!4v1671975991066!5m2!1sen!2sbd" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 </div>
 </div>
@@ -53,13 +54,13 @@ $setting = App\Models\Setting::find(1);
 <div class="footer-social-media-icons">
 <a href="{{ $setting->facebook }}" target="blank" rel="nofollow"><i class="fab fa-facebook"></i></a>
 <a href="{{ $setting->twitter }}" target="blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
-<a href="{{ $setting->instragram }}" target="blank" rel="nofollow"><i class="fab fa-instagram"></i></a>
+<a href="{{ $setting->instragram }}" target="blank" rel="nofollow"><i class="fab fa-github"></i></a>
 <a href="{{ $setting->linkedin }}" target="blank" rel="nofollow"><i class="fab fa-linkedin"></i></a>
 <a href="{{ $setting->youtube }}" target="blank" rel="nofollow"><i class="fab fa-youtube"></i></a>
 
 </div>
 <div class="footer-">
-<p>© 2020-2022. All Rights Reserved By <a href="#" target="blank">Technoval Limited</a></p>
+<p>© 2018-2023. All Rights Reserved By <a href="/" target="blank">Appllys Technologies</a></p>
 </div>
 </div>
 </div>

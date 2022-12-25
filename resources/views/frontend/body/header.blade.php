@@ -1,28 +1,30 @@
 
-
-<!--Start Header -->
-
-<header class="nav-bg-w main-header navfix navbar menu-white">
-         <div class="container-fluid m-pad">
 @php
 $setting = App\Models\Setting::find(1);
 @endphp
-				<div class="menu-header">
-				   <div class="dsk-logo"><a class="nav-brand" href="{{ url('/') }}">
-					  <img src="{{ asset($setting->logo) }}" alt="Logo" class="mega-white-logo"/>
-					  <img src="{{ asset($setting->logo) }}" alt="Logo" class="mega-darks-logo"/>
-					  </a>
-				   </div>
-				   <div class="custom-nav" role="navigation">
-					  <ul class="nav-list">
-						 <li class="sbmenu">
-							<a href="{{ url('/')}}" class="menu-links">HOME</a>
-							<div class="nx-dropdown">
-							   
-						 </li>
-						
+ <!--Start Preloader -->
+	<div class="onloadpage" id="page_loader">
+		<div class="pre-content">
+		   <div class="logo-pre"><img src="{{ asset($setting->logo) }}" alt="Logo" class="img-fluid" /></div>
+		   <div class="pre-text- text-radius text-light text-animation bg-b">Appllys Technologies</div>
+		</div>
+	 </div>
+	<!--End Preloader -->
 
-		<!--   // Get Category Table Data -->
+	<!--Start Header -->
+	<header class="nav-bg-b main-header navfix fixed-top menu-dark" style="background: #4201B1">
+		<div class="container-fluid m-pad">
+			<div class="menu-header">
+				<div class="dsk-logo"><a class="nav-brand" href="{{ url('/')}}">
+					<img src="{{ asset($setting->logo) }}" alt="Logo" class="mega-white-logo"/>
+					<img src="{{ asset($setting->logo) }}" alt="Logo" class="mega-darks-logo"/>
+				</a></div>
+				<div class="custom-nav" role="navigation">
+					<ul class="nav-list onepge">
+						<li><a href="{{ url('/')}}" class="menu-links">Home</a></li>					
+						<li><a href="https://blog.appllys.com/" target="_blank" class="menu-links">Smart School</a></li>
+						<li><a href="http://digi.degitalitshop.com/demo/" terget="_blank" class="menu-links">POS</a></li>
+				<!--   // Get Category Table Data -->
 		@php
 		$categories = App\Models\Category::orderBy('category_name','DESC')->get();
 		@endphp
@@ -30,74 +32,81 @@ $setting = App\Models\Setting::find(1);
 
 						@foreach($categories as $category)
 						 <li class="sbmenu">
-							<a href="{{ url('service/'.$category->slug) }}" class="menu-links">{{ $category->category_name}}</a>
+							<a href="{{ route('all-services')}}" class="menu-links">{{ $category->category_name}}</a>
+							<div class="nx-dropdown">
+							   <div class="sub-menu-section">
+								  <div class="container">
+								  	<div class="col-md-12">
+									 <div class="sub-menu-center-block">
+
+
+									 @php
+							$subcategories = App\Models\subcategory::where('category_id',$category->id)->orderBy('subcategory_name','DESC')->get();
+							@endphp
+
+							@foreach($subcategories as $subcategory)
+
+							<div class="sub-menu-column">
 							
+						<a href="{{ url('/services/subcategory/'.$subcategory->id.'/'.$subcategory->subcategory_slug) }}">
+							<div class="menuheading">{{ $subcategory->subcategory_name}}</div> </a>
+
+
+
+							<!--   // Get SubCategory Table Data -->
+							@php
+							$childcategories = App\Models\Childcategory::where('subcategory_id',$subcategory->id)->orderBy('childcategory_name','DESC')->get();
+							@endphp
+										
+							@foreach($childcategories as $childcategory)
+
+							
+									<ul>
+
+
+
+									  <li><a href="{{ url('/childcategory/services/'.$childcategory->id.'/'.$childcategory->childcategory_slug) }}">{{ $childcategory->childcategory_name}}</a></li>
+									    
+									</ul>
+									@endforeach
+							</div>
+
+							@endforeach
+										
+									</div>
+									 </div>
+								  </div>
+							   </div>
+							</div>
 						 </li>
 						
 						 @endforeach
-
-						 <!--li class="sbmenu">
-							<a href="{{ route('digital-marketing')}}" class="menu-links">DIGITAL MARKETING</a>
-							<div class="nx-dropdown">
-							   
-						 </li-->
-
-						 <!--li class="sbmenu">
+					
+						 <li class="sbmenu">
 							<a href="{{ route('all-portfolios')}}" class="menu-links">PORTFOLIOS</a>
 							<div class="nx-dropdown">
 							   
-						 </li-->
-						
-						 <!--li class="sbmenu">
-							<a href="{{ route('all-clients')}}" class="menu-links">CLIENTS</a>
-							<div class="nx-dropdown">
-							   
-						 </li-->
-						 
-						 <li class="sbmenu">
-							<a href="{{ route('about-us')}}" class="menu-links">ABOUT US</a>
-							<div class="nx-dropdown">
-							   
-						 </li>
-						 <li class="sbmenu">
-							<a href="{{ route('contact-us')}}" class="menu-links">CONTACT US</a>
-							<div class="nx-dropdown">
-							   
-						 </li>
-						 <!--li class="sbmenu">
-							<a href="{{ route('all-blog')}}" class="menu-links">BLOGS</a>
-							<div class="nx-dropdown">
-							   
-						 </li-->
-						
-						 <li><a href="get-quote.html" class="btn-br bg-btn5 btshad-b2 lnk" data-bs-toggle="modal" data-bs-target="#menu-popup"><strong>Book Appointment </strong> <span class="circle"></span></a> </li>
-              </ul>
-              <!-- mobile + desktop - sidebar menu- dark mode witch and button -->
-                                  
-              
-             
-				
-             
-                        
-              
-         
-          </div>
-		  <div class="mobile-menu2">
+						 </li>						
+						<li><a href="{{ route('all-clients')}}" class="menu-links">Clients</a></li>
+						<li><a href="{{ route('about-us')}}" class="menu-links">About</a></li>
+						<li><a href="get-quote.html" class="btn-br bg-btn5 btshad-b2 lnk" data-bs-toggle="modal" data-bs-target="#menu-popup">Request A Project <span class="circle"></span></a> </li>
+					</ul>
+				</div>
+				<div class="mobile-menu2">
 					<ul class="mob-nav2">
 						<li><a href="#" class="btn-round- trngl btn-br bg-btn btshad-b1"  data-bs-toggle="modal" data-bs-target="#menu-popup"><i class="fas fa-envelope-open-text"></i></a></li>
 						<li class="navm-"> <a class="toggle" href="#"><span></span></a></li>
 					</ul>
 				</div>
-        </div>
-	
-				<!--Mobile Menu-->
-				<nav id="main-nav">
-				   <ul class="first-nav">
-					  <li>
-					  <a href="{{ url('/')}}" class="menu-links">HOME</a>
-						
-					  </li>
-					  <!--   // Get Category Table Data -->
+			</div>
+			<!--Mobile Menu-->
+			<nav id="main-nav">
+				<ul class="first-nav">
+					
+						<li><a href="{{ url('/')}}" class="menu-links">Home</a></li>					
+						<li><a href="https://blog.appllys.com/" target="_blank" class="menu-links">Smart School</a></li>
+						<li><a href="http://digi.degitalitshop.com/demo/" terget="_blank" class="menu-links">POS</a></li>
+				<!--   // Get Category Table Data -->
 		@php
 		$categories = App\Models\Category::orderBy('category_name','DESC')->get();
 		@endphp
@@ -105,32 +114,92 @@ $setting = App\Models\Setting::find(1);
 
 						@foreach($categories as $category)
 						 <li class="sbmenu">
-							<a href="{{ url('service/'.$category->slug) }}" class="menu-links">{{ $category->category_name}}</a>
+							<a href="{{ route('all-services')}}" class="menu-links">{{ $category->category_name}}</a>
+							<div class="nx-dropdown">
+							   <div class="sub-menu-section">
+								  <div class="container">
+								  	<div class="col-md-12">
+									 <div class="sub-menu-center-block">
+
+
+									 @php
+							$subcategories = App\Models\subcategory::where('category_id',$category->id)->orderBy('subcategory_name','DESC')->get();
+							@endphp
+
+							@foreach($subcategories as $subcategory)
+
+							<div class="sub-menu-column">
 							
+						<a href="{{ url('/services/subcategory/'.$subcategory->id.'/'.$subcategory->subcategory_slug) }}">
+							<div class="menuheading">{{ $subcategory->subcategory_name}}</div> </a>
+
+
+
+							<!--   // Get SubCategory Table Data -->
+							@php
+							$childcategories = App\Models\Childcategory::where('subcategory_id',$subcategory->id)->orderBy('childcategory_name','DESC')->get();
+							@endphp
+										
+							@foreach($childcategories as $childcategory)
+
+							
+									<ul>
+
+
+
+									  <li><a href="{{ url('/childcategory/services/'.$childcategory->id.'/'.$childcategory->childcategory_slug) }}">{{ $childcategory->childcategory_name}}</a></li>
+									    
+									</ul>
+									@endforeach
+							</div>
+
+							@endforeach
+										
+									</div>
+									 </div>
+								  </div>
+							   </div>
+							</div>
 						 </li>
 						
 						 @endforeach
-
-						 
-						 
+					
 						 <li class="sbmenu">
-							<a href="{{ route('contact-us')}}" class="menu-links">CONTACT US</a>
+							<a href="{{ route('all-portfolios')}}" class="menu-links">PORTFOLIOS</a>
 							<div class="nx-dropdown">
 							   
-						 </li>
-						 
-						 
-						 <li class="sbmenu">
-							<a href="{{ route('about-us')}}" class="menu-links">ABOUT US</a>
-							<div class="nx-dropdown">
-						 </li>
-					  </li>
-				   </ul>
-				  
-				</nav>
-			 </div>
-		  </header>       
-		  <!--End Header -->
+						 </li>						
+						<li><a href="{{ route('all-clients')}}" class="menu-links">Clients</a></li>
+						<li><a href="{{ route('about-us')}}" class="menu-links">About</a></li>
+						<li><a href="get-quote.html" class="btn-br bg-btn5 btshad-b2 lnk" data-bs-toggle="modal" data-bs-target="#menu-popup">Request A Project <span class="circle"></span></a> </li>
+					
+				</ul>
+				<ul class="bottom-nav">
+					<li class="prb">
+						<a href="tel:+8801738214668">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 384">
+								<path d="M353.188,252.052c-23.51,0-46.594-3.677-68.469-10.906c-10.719-3.656-23.896-0.302-30.438,6.417l-43.177,32.594
+								c-50.073-26.729-80.917-57.563-107.281-107.26l31.635-42.052c8.219-8.208,11.167-20.198,7.635-31.448
+								c-7.26-21.99-10.948-45.063-10.948-68.583C132.146,13.823,118.323,0,101.333,0H30.813C13.823,0,0,13.823,0,30.813
+								C0,225.563,158.438,384,353.188,384c16.99,0,30.813-13.823,30.813-30.813v-70.323C384,265.875,370.177,252.052,353.188,252.052z"
+								/>
+							</svg>
+						</a>
+					</li>
+					<li class="prb">
+						<a href="mailto:contact@appllys.com">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+						</a>
+					</li>
+					<li class="prb">
+						<a href="skype:niwax.company?call">
+							<svg enable-background="new 0 0 24 24" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="m23.309 14.547c1.738-7.81-5.104-14.905-13.139-13.543-4.362-2.707-10.17.352-10.17 5.542 0 1.207.333 2.337.912 3.311-1.615 7.828 5.283 14.821 13.311 13.366 5.675 3.001 11.946-2.984 9.086-8.676zm-7.638 4.71c-2.108.867-5.577.872-7.676-.227-2.993-1.596-3.525-5.189-.943-5.189 1.946 0 1.33 2.269 3.295 3.194.902.417 2.841.46 3.968-.3 1.113-.745 1.011-1.917.406-2.477-1.603-1.48-6.19-.892-8.287-3.483-.911-1.124-1.083-3.107.037-4.545 1.952-2.512 7.68-2.665 10.143-.768 2.274 1.76 1.66 4.096-.175 4.096-2.207 0-1.047-2.888-4.61-2.888-2.583 0-3.599 1.837-1.78 2.731 2.466 1.225 8.75.816 8.75 5.603-.005 1.992-1.226 3.477-3.128 4.253z"/></svg>
+						</a>
+					</li>
+				</ul>
+			</nav>					
+		</div>
+	</header>
 		  		<!--Mobile contact-->
 <div class="popup-modal1">
 <div class="modal" id="menu-popup">
@@ -138,7 +207,7 @@ $setting = App\Models\Setting::find(1);
 <div class="modal-content">
 <div class="modal-header">
 <div class="common-heading">
-<h4 class="mt0 mb0"> Input Details </h4>
+<h4 class="mt0 mb0"> Project Details </h4>
 </div>
 <button type="button" class="closes" data-bs-dismiss="modal">&times;</button></div>
 <!-- Modal body -->
