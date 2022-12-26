@@ -54,7 +54,7 @@ Technoval BD
 												<span><i class="fas fa-phone-alt"></i> Phone:</span>
 												<div class="info-body">
 													<p>Assistance hours: Without Friday, 10 am to 7 pm</p>
-													<a href="tel:+8801648909574">+8801648 909 574</a>
+													<a href="tel:+8801982181819">+8801982181819</a>
 												</div>
 											</div>
 										</div>
@@ -63,7 +63,7 @@ Technoval BD
 												<span><i class="fas fa-envelope"></i> Email:</span>
 												<div class="info-body">
 													<p>Our support team will get back to in 24-h during standard business hours.</p>
-													<a href="mailto:skincarecenterbd@gmail.com">skincarecenterbd@gmail.com</a>
+													<a href="mailto:contact@appllys.com">contact@appllys.com</a>
 												</div>
 											</div>
 										</div>

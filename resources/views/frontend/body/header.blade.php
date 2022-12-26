@@ -89,6 +89,7 @@ $setting = App\Models\Setting::find(1);
 						 </li>						
 						<li><a href="{{ route('all-clients')}}" class="menu-links">Clients</a></li>
 						<li><a href="{{ route('about-us')}}" class="menu-links">About</a></li>
+						<li><a href="{{ route('contact-us')}}" class="menu-links">Contact</a></li>
 						<li><a href="get-quote.html" class="btn-br bg-btn5 btshad-b2 lnk" data-bs-toggle="modal" data-bs-target="#menu-popup">Request A Project <span class="circle"></span></a> </li>
 					</ul>
 				</div>
