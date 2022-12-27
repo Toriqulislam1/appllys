@@ -23,7 +23,7 @@ $setting = App\Models\Setting::find(1);
 					<ul class="nav-list onepge">
 						<li><a href="{{ url('/')}}" class="menu-links">Home</a></li>					
 						<li><a href="https://blog.appllys.com/" target="_blank" class="menu-links">Smart School</a></li>
-						<li><a href="http://digi.degitalitshop.com/demo/" terget="_blank" class="menu-links">POS</a></li>
+						<li><a href="http://digi.degitalitshop.com/demo/" target="_blank" class="menu-links">POS</a></li>
 				<!--   // Get Category Table Data -->
 		@php
 		$categories = App\Models\Category::orderBy('category_name','DESC')->get();
@@ -83,7 +83,7 @@ $setting = App\Models\Setting::find(1);
 						 @endforeach
 					
 						 <li class="sbmenu">
-							<a href="{{ route('all-portfolios')}}" class="menu-links">PORTFOLIOS</a>
+							<a href="{{ route('all-portfolios')}}" class="menu-links">PORTFOLIO</a>
 							<div class="nx-dropdown">
 							   
 						 </li>						

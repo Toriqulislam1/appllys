@@ -332,6 +332,10 @@ Route::prefix('setting')->group(function(){
 
     Route::post('/fav/update', [SettingController::class, 'FavSetting'])->name('fav-update');
 
+    Route::get('/seo', [SettingController::class, 'SeoSetting'])->name('setting-seo');
+
+    Route::post('/seo/update', [SettingController::class, 'SeoSettingUpdate'])->name('seo-update');
+
 
 
 

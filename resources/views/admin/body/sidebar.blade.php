@@ -114,6 +114,7 @@
           <ul class="treeview-menu">
             <li><a href="{{ route('setting-add') }}"><i class="ti-more"></i>Setting</a></li>
             <li><a href="{{ route('setting-fav') }}"><i class="ti-more"></i>Favicon Update</a></li>
+            <li><a href="{{ route('setting-seo') }}"><i class="ti-more"></i>Seo setting</a></li>
             
           </ul>
           

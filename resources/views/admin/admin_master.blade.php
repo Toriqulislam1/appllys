@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+@php
+$seo = App\Models\Seo::find(1);
+@endphp
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +14,7 @@ $favicon = App\Models\favicon::find(1);
 @endphp
     <link rel="icon" href="{{ asset($favicon->fav) }}">
 
-    <title>Laser Skin</title>
+    <title>{{ $seo->meta_title}}</title>
     
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="{{ asset('backend/css/vendors_css.cs') }}s">

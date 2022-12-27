@@ -241,7 +241,7 @@ $clients = App\Models\Client::orderBy('id','desc')->get();
 						<div class="cta-card mt60 text-center">
 							<h3 class="mb20">Let's Start a  <span class="text-second text-bold">New Project</span> Together</h3>
 							
-							<a href="#" class="btn-outline lnk mt30">Request A Quote    <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
+							<a href="#" class="btn-outline lnk mt30" data-bs-toggle="modal" data-bs-target="#menu-popup">Request A Quote    <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
 						</div>
 					</div>
 				</div>
