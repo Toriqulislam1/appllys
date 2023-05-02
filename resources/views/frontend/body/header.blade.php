@@ -1,3 +1,127 @@
+<style>
+ .dropup, .dropright, .dropdown, .dropleft {
+    position: relative;
+}
+
+.navbar-tool {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.czi-user::before {
+    content: "\e98d";
+}
+
+
+.ml-3, .mx-3 {
+    margin-left: 1rem !important;
+}
+
+
+.navbar-light .navbar-tool-icon-box.bg-secondary {
+    background-color: #f3f5f9 !important;
+}
+.navbar-light .navbar-tool-icon-box {
+    color: #ec6632;
+}
+.navbar-light .navbar-tool-icon-box {
+    color: #4b566b;
+}
+.bg-secondary {
+    background-color: #f6f9fc !important;
+}
+.navbar-tool-icon-box {
+    position: relative;
+    width: 2.875rem;
+    height: 2.875rem;
+    transition: color 0.25s ease-in-out;
+    border-radius: 50%;
+    line-height: 2.625rem;
+    text-align: center;
+}
+.bg-secondary {
+    background-color: #f3f5f9 !important;
+}
+
+.navbar-light .navbar-tool-icon-box.bg-secondary {
+    background-color: #f3f5f9 !important;
+}
+.navbar-light .navbar-tool-icon-box {
+    color: #ec6632;
+}
+.navbar-light .navbar-tool-icon-box {
+    color: #4b566b;
+}
+.bg-secondary {
+    background-color: #f6f9fc !important;
+}
+.navbar-tool-icon-box {
+    position: relative;
+    width: 2.875rem;
+    height: 2.875rem;
+    transition: color 0.25s ease-in-out;
+    border-radius: 50%;
+    line-height: 2.625rem;
+    text-align: center;
+}
+
+.bg-secondary {
+    background-color: #f3f5f9 !important;
+}
+
+.navbar-tool-icon {
+    font-size: 1.25rem;
+    line-height: 2.875rem;
+}
+
+.czi{
+    display: inline-block;
+    font-family: 'sixvalley-icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+}
+
+
+.czi-user::before {
+    content: "\e98d";
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+.navbar-tool-icon {
+    font-size: 1.25rem;
+    line-height: 2.875rem;
+}
+[class^="czi-"], [class*=" czi-"] {
+    display: inline-block;
+    font-family: 'sixvalley-icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
 
 @php
 $setting = App\Models\Setting::find(1);
@@ -21,9 +145,11 @@ $setting = App\Models\Setting::find(1);
 				</a></div>
 				<div class="custom-nav" role="navigation">
 					<ul class="nav-list onepge">
-						<li><a href="{{ url('/')}}" class="menu-links">Home</a></li>					
-						<li><a href="https://blog.appllys.com/" target="_blank" class="menu-links">Smart School</a></li>
-						<li><a href="http://digi.degitalitshop.com/demo/" target="_blank" class="menu-links">POS</a></li>
+						<li><a href="{{ url('/')}}" class="menu-links">Home</a></li>
+
+						{{-- <li><a href="" target="_blank" class="menu-links">Sing UP</a></li> --}}
+
+						<li><a href="{{ route('ready.software') }}" target="_blank" class="menu-links">Ready Software</a></li>
 				<!--   // Get Category Table Data -->
 		@php
 		$categories = App\Models\Category::orderBy('category_name','DESC')->get();
@@ -47,7 +173,7 @@ $setting = App\Models\Setting::find(1);
 							@foreach($subcategories as $subcategory)
 
 							<div class="sub-menu-column">
-							
+
 						<a href="{{ url('/services/subcategory/'.$subcategory->id.'/'.$subcategory->subcategory_slug) }}">
 							<div class="menuheading">{{ $subcategory->subcategory_name}}</div> </a>
 
@@ -57,40 +183,65 @@ $setting = App\Models\Setting::find(1);
 							@php
 							$childcategories = App\Models\Childcategory::where('subcategory_id',$subcategory->id)->orderBy('childcategory_name','DESC')->get();
 							@endphp
-										
+
 							@foreach($childcategories as $childcategory)
 
-							
+
 									<ul>
 
 
 
 									  <li><a href="{{ url('/childcategory/services/'.$childcategory->id.'/'.$childcategory->childcategory_slug) }}">{{ $childcategory->childcategory_name}}</a></li>
-									    
+
 									</ul>
 									@endforeach
 							</div>
 
 							@endforeach
-										
+
 									</div>
 									 </div>
 								  </div>
 							   </div>
 							</div>
 						 </li>
-						
+
 						 @endforeach
-					
+
 						 <li class="sbmenu">
 							<a href="{{ route('all-portfolios')}}" class="menu-links">PORTFOLIO</a>
 							<div class="nx-dropdown">
-							   
-						 </li>						
-						<li><a href="{{ route('all-clients')}}" class="menu-links">Clients</a></li>
+
+						 </li>
+						{{-- <li><a href="{{ route('all-clients')}}" class="menu-links">Clients</a></li> --}}
 						<li><a href="{{ route('about-us')}}" class="menu-links">About</a></li>
 						<li><a href="{{ route('contact-us')}}" class="menu-links">Contact</a></li>
-						<li><a href="get-quote.html" class="btn-br bg-btn5 btshad-b2 lnk" data-bs-toggle="modal" data-bs-target="#menu-popup">Request A Project <span class="circle"></span></a> </li>
+						{{-- <li><a href="{{ route('cart-view')}}" class="menu-links">Cart</a></li> --}}
+						{{-- <li><a href="get-quote.html" class="btn-br bg-btn5 btshad-b2 lnk" data-bs-toggle="modal" data-bs-target="#menu-popup">Request A Project <span class="circle"></span></a> </li> --}}
+
+
+
+                         <li>
+                        <div class="dropdown">
+                            <a class="navbar-tool ml-3" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="navbar-tool-icon-box bg-secondary">
+
+                                    <div class="navbar-tool-icon-box bg-secondary">
+                                        <i class="fa fa-user-circle mr-2"></i>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton" style="text-align: left;">
+                                <a class="dropdown-item" href="{{ route('login.customer') }}">
+                                    <i class="fa fa-sign-in" aria-hidden="true"></i> Sign in
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('signup.view') }}">
+                                    <i class="fa fa-user-circle mr-2"></i>Sign up
+                                </a>
+                            </div>
+                        </div>
+                    </li>
 					</ul>
 				</div>
 				<div class="mobile-menu2">
@@ -103,10 +254,10 @@ $setting = App\Models\Setting::find(1);
 			<!--Mobile Menu-->
 			<nav id="main-nav">
 				<ul class="first-nav">
-					
-						<li><a href="{{ url('/')}}" class="menu-links">Home</a></li>					
+
+						<li><a href="{{ url('/')}}" class="menu-links">Home</a></li>
 						<li><a href="https://blog.appllys.com/" target="_blank" class="menu-links">Smart School</a></li>
-						<li><a href="http://digi.degitalitshop.com/demo/" terget="_blank" class="menu-links">POS</a></li>
+						<li><a href="#" terget="_blank" class="menu-links">Ready Software</a></li>
 				<!--   // Get Category Table Data -->
 		@php
 		$categories = App\Models\Category::orderBy('category_name','DESC')->get();
@@ -130,7 +281,7 @@ $setting = App\Models\Setting::find(1);
 							@foreach($subcategories as $subcategory)
 
 							<div class="sub-menu-column">
-							
+
 						<a href="{{ url('/services/subcategory/'.$subcategory->id.'/'.$subcategory->subcategory_slug) }}">
 							<div class="menuheading">{{ $subcategory->subcategory_name}}</div> </a>
 
@@ -140,40 +291,41 @@ $setting = App\Models\Setting::find(1);
 							@php
 							$childcategories = App\Models\Childcategory::where('subcategory_id',$subcategory->id)->orderBy('childcategory_name','DESC')->get();
 							@endphp
-										
+
 							@foreach($childcategories as $childcategory)
 
-							
+
 									<ul>
 
 
 
 									  <li><a href="{{ url('/childcategory/services/'.$childcategory->id.'/'.$childcategory->childcategory_slug) }}">{{ $childcategory->childcategory_name}}</a></li>
-									    
+
 									</ul>
 									@endforeach
 							</div>
 
 							@endforeach
-										
+
 									</div>
 									 </div>
 								  </div>
 							   </div>
 							</div>
 						 </li>
-						
+
 						 @endforeach
-					
+
 						 <li class="sbmenu">
 							<a href="{{ route('all-portfolios')}}" class="menu-links">PORTFOLIOS</a>
 							<div class="nx-dropdown">
-							   
-						 </li>						
-						<li><a href="{{ route('all-clients')}}" class="menu-links">Clients</a></li>
+
+						 </li>
+						{{-- <li><a href="{{ route('all-clients')}}" class="menu-links">Clients</a></li> --}}
 						<li><a href="{{ route('about-us')}}" class="menu-links">About</a></li>
+						<li><a href="{{ route('about-us')}}" class="menu-links">Cart</a></li>
 						<li><a href="get-quote.html" class="btn-br bg-btn5 btshad-b2 lnk" data-bs-toggle="modal" data-bs-target="#menu-popup">Request A Project <span class="circle"></span></a> </li>
-					
+
 				</ul>
 				<ul class="bottom-nav">
 					<li class="prb">
@@ -198,7 +350,7 @@ $setting = App\Models\Setting::find(1);
 						</a>
 					</li>
 				</ul>
-			</nav>					
+			</nav>
 		</div>
 	</header>
 		  		<!--Mobile contact-->

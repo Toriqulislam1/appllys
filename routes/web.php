@@ -14,10 +14,15 @@ use App\Http\Controllers\Backend\PortfolioController;
 use App\Http\Controllers\Backend\ClientController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\productController;
 use App\Http\Controllers\Frontend\ContactUsController;
 use App\Http\Controllers\Backend\PolicyController;
 use App\Http\Controllers\Backend\IndController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Frontend\readysoftwareController;
+use App\Http\Controllers\Frontend\customerloginController;
+use App\Http\Controllers\Frontend\loginSocialiteController;
+
 
 
 
@@ -70,7 +75,7 @@ Route::prefix('admin')->group(function (){
 
 /*-------------End Admin route--------*/
 
-// Admin Category All Routes 
+// Admin Category All Routes
 
 Route::prefix('category')->group(function(){
 
@@ -87,7 +92,7 @@ Route::prefix('category')->group(function(){
 
 
 
-// all Sub Category 
+// all Sub Category
 
 Route::get('/sub/view', [SubCategoryController::class, 'SubCategoryView'])->name('all.subcategory');
 
@@ -102,7 +107,7 @@ Route::post('/sub/update', [SubCategoryController::class, 'SubCategoryUpdate'])-
 Route::get('/sub/delete/{id}', [SubCategoryController::class, 'SubCategoryDelete'])->name('subcategory.delete');
 
 
-// all child Category 
+// all child Category
 
 Route::get('/child/view', [SubCategoryController::class, 'ChildCategoryView'])->name('all.childcategory');
 
@@ -121,9 +126,9 @@ Route::get('/child/delete/{id}', [SubCategoryController::class, 'ChildCategoryDe
     });
 
 
-    
 
-// Admin Content All Routes 
+
+// Admin Content All Routes
 
 Route::prefix('content')->group(function(){
 
@@ -137,7 +142,7 @@ Route::prefix('content')->group(function(){
 
     Route::post('/data/update', [ContentController::class, 'ContentDataUpdate'])->name('content-update');
 
-    Route::post('/thamble/update', [ContentController::class, 'ThambleImageUpdate'])->name('update-services-thamble');
+    // Route::post('/thamble/update', [ContentController::class, 'ThambleImageUpdate'])->name('update-services-thamble');
 
     Route::get('/inactive/{id}', [ContentController::class, 'ServicesInactive'])->name('services.inactive');
 
@@ -147,7 +152,7 @@ Route::prefix('content')->group(function(){
 
 });
 
-// Admin gallery All Routes 
+// Admin gallery All Routes
 
 Route::prefix('gallery')->group(function(){
 
@@ -169,7 +174,7 @@ Route::prefix('gallery')->group(function(){
 
 });
 
-// Admin Portfolio All Routes 
+// Admin Portfolio All Routes
 
 Route::prefix('portfolio')->group(function(){
 
@@ -193,7 +198,7 @@ Route::prefix('portfolio')->group(function(){
 
 });
 
-// Admin Client All Routes 
+// Admin Client All Routes
 
 Route::prefix('client')->group(function(){
 
@@ -212,7 +217,7 @@ Route::prefix('client')->group(function(){
 });
 
 
-// Frontend Product Details Page url 
+// Frontend Product Details Page url
 Route::get('/services/details/{id}/{slug}', [IndexController::class, 'ServicesDetails']);
 
 // Frontend Category wise Data
@@ -252,7 +257,7 @@ Route::get('digital/marketing', [ContactUsController::class, 'DigitalMarketing']
 //privacy
 Route::get('privacy/view', [ContactUsController::class, 'PrivacyView'])->name('privacy-view');
 Route::get('terms/view', [ContactUsController::class, 'TermsView'])->name('terms-view');
- 
+
 // blog
 Route::get('blog/add', [BlogController::class, 'BlogAdd'])->name('blog-add');
 
@@ -301,7 +306,7 @@ Route::post('terms/update/', [PolicyController::class, 'TermsUpdate'])->name('te
 Route::get('policy/delete/{id}', [PolicyController::class, 'PolicyDelete'])->name('policy-delete');
 
 
-// Admin Client All Routes 
+// Admin Client All Routes
 
 Route::prefix('ind')->group(function(){
 
@@ -320,7 +325,7 @@ Route::prefix('ind')->group(function(){
 
 });
 
-// Admin Basic Setting 
+// Admin Basic Setting
 
 Route::prefix('setting')->group(function(){
 
@@ -342,12 +347,46 @@ Route::prefix('setting')->group(function(){
 });
 
 
+// menu bar software route
+Route::get('/ready/software', [readysoftwareController::class, 'readysoftware'])->name('ready.software');
+Route::get('/ready/software/priview/{id}', [readysoftwareController::class, 'softwarePreview'])->name('software.preview');
+Route::get('/ready/software/cart', [readysoftwareController::class, 'cartView'])->name('cart-view');
+Route::get('/ready/software/checkout', [readysoftwareController::class, 'checkout'])->name('checkout.view');
 
 
-     
+//sign up all route
+Route::get('/customer/signup', [customerloginController::class, 'signup'])->name('signup.view');
+Route::get('/customer/login', [customerloginController::class, 'login'])->name('login.customer');
+Route::post('/customer/signup/store', [customerloginController::class, 'userStore'])->name('user.store');
+Route::post('/customer/login', [customerloginController::class, 'loginCustomer'])->name('login.customer.success');
 
-   
-     
+
+//Google Login
+Route::get('/google/redirect', [loginSocialiteController::class, 'redirect_provider'])->name('google.redirect');
+Route::get('/google/callback', [loginSocialiteController::class, 'provider_to_application'])->name('google.callback');
+
+//Facebook Login
+Route::get('/facebook/redirect', [loginSocialiteController::class, 'redirect_provider_facebook'])->name('facebook.redirect');
+Route::get('/facebook/callback', [loginSocialiteController::class, 'provider_to_application_facebook'])->name('facebook.callback');
+
+//product admin route
+Route::get('/product/add', [productController::class, 'productAdd'])->name('product-add');
+Route::post('/product/store', [productController::class, 'productStore'])->name('product-store');
+Route::get('/product/manage', [productController::class, 'productManage'])->name('product-manage');
+Route::get('/product/delete/{product_id}', [productController::class, 'productDelete'])->name('product.delete');
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

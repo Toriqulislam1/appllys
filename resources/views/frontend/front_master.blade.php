@@ -33,6 +33,7 @@ $favicon = App\Models\favicon::find(1);
     <link href="{{ asset('frontend/assets/css/style.css')}}" rel="stylesheet">
     <link href="{{ asset('frontend/assets/css/responsive.css')}}" rel="stylesheet">
     <link href="{{ asset('frontend/assets/css/darkmode.css')}}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   </head>
   <body>
   	 <!--Start Preloader -->
@@ -43,7 +44,7 @@ $favicon = App\Models\favicon::find(1);
 	</div>
  </div-->
  <!--End Preloader -->
- 
+
  @include('frontend.body.header')
  <!--End Header -->
 
@@ -54,10 +55,15 @@ $favicon = App\Models\favicon::find(1);
 <!-- js placed at the end of the document so the pages load faster -->
 <script src="{{ asset('frontend/assets/js/vendor/modernizr-3.5.0.min.js')}}"></script>
 <script src="{{ asset('frontend/assets/js/jquery.min.js')}}"></script>
-<script src="{{ asset('frontend/assets/js/bootstrap.bundle.min.js')}}"></script> 
+<script src="{{ asset('frontend/assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{ asset('frontend/assets/js/plugin.min.js')}}"></script>
 <script src="{{ asset('frontend/assets/js/Preloader.js')}}"></script>
 <!--common script file-->
 <script src="{{ asset('frontend/assets/js/main.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@yield('footer_script')
 </body>
 </html>
+
+
+
