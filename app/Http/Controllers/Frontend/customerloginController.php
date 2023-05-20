@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 use Session;
+use App\Models\customerLogin;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -48,13 +49,12 @@ class customerloginController extends Controller
 
             if($request->password==$request->confirm_password){
 
-                user::insert([
+                customerLogin::insert([
                     'name' => $request->name,
                     'email' => $request->email,
-                    'phone' => $request->phone,
+                    'mobile' => $request->phone,
                     'location' => $request->location,
                     'institute_name' => $request->institute_name,
-
                     'password' => bcrypt($request->confirm_password),
                       'created_at' => Carbon::now(),
                 ]);
@@ -68,19 +68,15 @@ class customerloginController extends Controller
 
     public function loginCustomer(Request $request){
 
+        if(Auth::guard('customer')->attempt(['email'=>$request->email, 'password'=>$request->password])){
 
-     $check =   Auth::attempt(['email' =>$request->email, 'password' =>$request->password]);
+            return view('frontend.customer.dashboard');
+        }else{
 
+            return view('frontend.customer.login');
+        }
 
-     if($check==true){
-
-       return view('frontend.customer.dashboard');
-     }else{
-
-        return back()->with('password_worng','password or email wrong');
-
-     }
-
+  
 
   }
 

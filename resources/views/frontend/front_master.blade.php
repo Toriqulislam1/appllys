@@ -23,7 +23,7 @@ $seo = App\Models\Seo::find(1);
     @php
 $favicon = App\Models\favicon::find(1);
 @endphp
-    <link href="{{ asset($favicon->fav) }}" rel="icon">
+    {{-- <link href="{{ asset($favicon->fav) }}" rel="icon"> --}}
     <!--plugin-css-->
     <link href="{{ asset('frontend/assets/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ asset('frontend/assets/css/plugin.min.css')}}" rel="stylesheet">
