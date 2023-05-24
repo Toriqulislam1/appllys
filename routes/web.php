@@ -19,6 +19,7 @@ use App\Http\Controllers\Frontend\ContactUsController;
 use App\Http\Controllers\Backend\PolicyController;
 use App\Http\Controllers\Backend\IndController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\orderController;
 use App\Http\Controllers\Frontend\readysoftwareController;
 use App\Http\Controllers\Frontend\customerloginController;
 use App\Http\Controllers\Frontend\loginSocialiteController;
@@ -351,7 +352,7 @@ Route::prefix('setting')->group(function(){
 Route::get('/ready/software', [readysoftwareController::class, 'readysoftware'])->name('ready.software');
 Route::get('/ready/software/priview/{id}', [readysoftwareController::class, 'softwarePreview'])->name('software.preview');
 Route::get('/ready/software/cart', [readysoftwareController::class, 'cartView'])->name('cart-view');
-Route::get('/ready/software/checkout', [readysoftwareController::class, 'checkout'])->name('checkout.view');
+Route::get('/ready/software/checkout/{id}', [readysoftwareController::class, 'checkout'])->name('checkout.view');
 
 
 //sign up all route
@@ -376,7 +377,13 @@ Route::get('/product/manage', [productController::class, 'productManage'])->name
 Route::get('/product/delete/{product_id}', [productController::class, 'productDelete'])->name('product.delete');
 
 
+//order
+Route::controller(orderController::class)->group(function(){
 
+Route::post('request','orderRequest')->name('order');
+Route::get('payment/checkout','checkoutPayment')->name('paymentCheckout');
+
+});
 
 
 

@@ -6,10 +6,12 @@ Appllys Technologies
 
 
 
+
 <section class="contact-page pad-tb">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 v-center">
+                
                 <div class="common-heading text-l">
                     <span>Order Now</span>
 
@@ -19,7 +21,7 @@ Appllys Technologies
                         @csrf
                         <div class="row">
                             <div class="form-group col-sm-6 has-error">
-                                <input type="hidden" id="product" name="product_id" value="{{ $productId }}">
+
                                 <input type="text" id="name" placeholder="Enter name" name="name" value="{{ auth()->guard('customer')->user()->name }}" required="" data-error="Please fill Out">
                                 <div class="help-block with-errors"><ul class="list-unstyled"></ul></div>
                             </div>
@@ -79,9 +81,6 @@ Appllys Technologies
                     </div>
                 </div>
             </section>
-
-
-
 
 
 

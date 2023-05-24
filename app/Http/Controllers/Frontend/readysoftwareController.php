@@ -28,8 +28,10 @@ class readysoftwareController extends Controller
         return view('frontend.software.cart.cart_view');
      }//end
 
-     function checkout(){
-        return view('frontend.software.cart.checkout');
+     function checkout($id){
+      
+
+         return view('frontend.software.cart.checkout',['productId'=>$id,]);
      }//end
 
 

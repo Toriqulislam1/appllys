@@ -209,7 +209,7 @@ Appllys Technologies
                         </li>
 
                         <li>
-                            <a href="{{ route('checkout.view') }}" class="btn-main bg-btn3 lnk w-100 mt10">Buy Now <span class="circle"></span> </a>
+                            <a href="{{ route('checkout.view',$previews->id) }}" class="btn-main bg-btn3 lnk w-100 mt10">Buy Now <span class="circle"></span> </a>
                         </li>
 
                     </ul>
