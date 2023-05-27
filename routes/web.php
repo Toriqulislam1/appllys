@@ -382,6 +382,12 @@ Route::controller(orderController::class)->group(function(){
 
 Route::post('request','orderRequest')->name('order');
 Route::get('payment/checkout','checkoutPayment')->name('paymentCheckout');
+Route::get('payment/bikash','PaymentBikash')->name('paywithbikas');
+Route::post('payment/bikash/trantion','PaymentBikashTrantion')->name('payment-bikash-trantion');
+
+//profile order show
+
+Route::get('profile/order','orderProfile')->name('cus.order.profile');
 
 });
 

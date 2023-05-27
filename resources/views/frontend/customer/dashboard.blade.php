@@ -163,7 +163,7 @@
 				  <!-- logo for regular state and mobile devices -->
 					 <div class="d-flex align-items-center justify-content-center">
 						  <img src="{{ asset('backend/images/logo-dark.png') }}" alt="">
-						  <h3><b>Sunny</b> Admin</h3>
+						  <h3><b>Appllys</b> Admin</h3>
 					 </div>
 				</a>
 			</div>
@@ -182,13 +182,13 @@
         <li class="treeview">
           <a href="#">
             <i data-feather="message-circle"></i>
-            <span>Order</span>
+            <span>Profile</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="chat.html"><i class="ti-more"></i>Chat</a></li>
+            <li><a href="{{ cus.order.profile }}"><i class="ti-more"></i>order</a></li>
             <li><a href="calendar.html"><i class="ti-more"></i>Calendar</a></li>
           </ul>
         </li>

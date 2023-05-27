@@ -10,8 +10,8 @@ Appllys Technologies
        <div class="row justify-content-center">
           <div class="col-lg-8">
              <div class="common-heading">
-                <span>Our Locations</span>
-                <h2>Our Office</h2>
+                <span>Pay with</span>
+
              </div>
           </div>
        </div>
@@ -20,18 +20,17 @@ Appllys Technologies
 
        <div class="row justify-content-center upset shape-numm">
 
-        <a href=""  title="cashon">
+        <a href="{{ route('paywithbikas') }}"  title="cashon">
           <div class="col-lg-4 col-sm-6 shape-loc wow fadeInUp" data-wow-delay=".2s">
 
              <div class="office-card">
                 <input type="hidden" value="1" name="cashout">
                 <div class="skyline-img" data-tilt data-tilt-max="4" data-tilt-speed="1000">
 
-                   <img src="{{ asset('frontend/assets/images/location/newyork.png') }}" alt="New York" class="img-fluid" />
+                   <img src="{{ asset('frontend/assets/images/location/bikash.jpg') }}" alt="New York" class="img-fluid" />
                 </div>
              </div>
             </a>
-            
           </div>
           </form>
 
