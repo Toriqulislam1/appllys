@@ -355,11 +355,14 @@ Route::get('/ready/software/cart', [readysoftwareController::class, 'cartView'])
 Route::get('/ready/software/checkout/{id}', [readysoftwareController::class, 'checkout'])->name('checkout.view');
 
 
-//sign up all route
+//sign up customer all route
 Route::get('/customer/signup', [customerloginController::class, 'signup'])->name('signup.view');
 Route::get('/customer/login', [customerloginController::class, 'login'])->name('login.customer');
 Route::post('/customer/signup/store', [customerloginController::class, 'userStore'])->name('user.store');
 Route::post('/customer/login', [customerloginController::class, 'loginCustomer'])->name('login.customer.success');
+Route::get('/deshboard/user', [customerloginController::class, 'deshboardUser'])->name('deshboard-check');
+Route::get('/customer/logout', [customerloginController::class, 'logoutCustomer'])->name('logout-customer');
+
 
 
 //Google Login

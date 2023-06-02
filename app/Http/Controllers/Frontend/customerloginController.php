@@ -63,7 +63,10 @@ class customerloginController extends Controller
                 return back()->with('error_pass','your password does not match');
             }
 
-        return view('frontend.customer.dashboard');
+        if(Auth::guard('customer')->attempt(['email'=>$request->email, 'password'=>$request->password])){
+            return view('frontend.customer.dashboard');
+        }
+
     }//end
 
     public function loginCustomer(Request $request){
@@ -76,12 +79,25 @@ class customerloginController extends Controller
             return view('frontend.customer.login');
         }
 
-  
-
-  }
+  }//end
 
 
+public function deshboardUser(){
 
+ return view('frontend.customer.dashboard');
+
+}
+
+public function logoutCustomer(){
+
+    Session::flush();
+
+    Auth::guard('customer')->logout();
+
+    return redirect()->route('login.customer');
+
+
+}
 
 
 

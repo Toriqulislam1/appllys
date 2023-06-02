@@ -52,6 +52,9 @@ class orderController extends Controller
         return view('admin.payment.paymentsuccess');
     }//end
 
-    
+    public function orderProfile(){
+
+        return view('frontend.customer.admin.profile.order');
+    }
 
 }
