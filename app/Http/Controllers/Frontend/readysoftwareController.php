@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\product;
 use Illuminate\Http\Request;
+use Auth;
 
 class readysoftwareController extends Controller
 {
@@ -29,9 +30,16 @@ class readysoftwareController extends Controller
      }//end
 
      function checkout($id){
-      
 
-         return view('frontend.software.cart.checkout',['productId'=>$id,]);
+        if (Auth::guard('customer')->check()){
+
+            return view('frontend.software.cart.checkout',['productId'=>$id,]);
+        }else{
+            return redirect()->back()->with('buy','first login');
+        }
+
+
+
      }//end
 
 

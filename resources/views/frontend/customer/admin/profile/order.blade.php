@@ -38,26 +38,24 @@
 					  <table id="example1" class="table table-bordered table-striped">
 						<thead>
 
-                            @php
-								$order = App\Models\order::where('customer_id',auth()->guard('customer')->user()->id )
-                            @endphp
+
 							<tr>
 
 								<th>#Order </th>
 								<th>Date</th>
 								<th>software name</th>
-								<th>trantion Image</th>
+								<th>software Image</th>
 
 							</tr>
 						</thead>
 						<tbody>
-                           @foreach($order as $item)
+                           @foreach($orders as $item)
 							<tr>
 
-								<td></td>
-								<td></td>
+								<td>{{ $item->order_number }}</td>
+								<td>{{ Carbon\Carbon::parse($item->created_at)}}</td>
 								<td>{{ $item->product->name}}</td>
-								<td></td>
+								<td> <img width="50px" height="50px" src="{{ asset($item->product->image)}}"> </td>
 
 							</tr>
                            @endforeach

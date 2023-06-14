@@ -46,9 +46,19 @@ Appllys Technologies
                             <div class="rpb-shop-inf-rr">
                                 <div class="rpb-shop-flxbt">
                                 <a href="{{ route('software.preview',$product->id) }}" class="rpb-shop-prev" data-bs-toggle="tooltip" title="priview product">Preview</a>
+
                                 <a href="{{ route('checkout.view',$product->id) }}" data-bs-toggle="tooltip" class="rpb-shop-prev" title="buy now">Buy Now</a>
+
+
                             </div>
+
                             </div>
+                            @if(Session::has('buy'))
+                            <div class="alert alert-danger">
+                            {{ Session::get('buy')}}
+                            </div>
+                            @endif
+
                         </div>
                     </div>
                 </div>
