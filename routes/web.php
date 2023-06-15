@@ -19,6 +19,7 @@ use App\Http\Controllers\Frontend\ContactUsController;
 use App\Http\Controllers\Backend\PolicyController;
 use App\Http\Controllers\Backend\IndController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\commentcontroller;
 use App\Http\Controllers\Backend\orderController;
 use App\Http\Controllers\Frontend\readysoftwareController;
 use App\Http\Controllers\Frontend\customerloginController;
@@ -395,6 +396,14 @@ Route::get('profile/order','orderProfile')->name('cus.order.profile');
 });
 
 
+//comment + review
+
+Route::controller(commentcontroller::class)->group(function(){
+
+    Route::post('comment/store','commentStore')->name('comment-store');
+
+
+    });
 
 
 

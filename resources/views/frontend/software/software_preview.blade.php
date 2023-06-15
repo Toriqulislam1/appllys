@@ -104,46 +104,54 @@ Appllys Technologies
 
                             <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3c">
 
-                                <div class="rpb-commentss comments-block">
-                                    <div class="media">
-                                        <div class="user-image"><img src="images/user-thumb/user3.jpg" alt="girl" class="img-fluid"/></div>
-                                        <div class="media-body user-info">
-                                            <h5 class="mb10">Petey Cruiser <small class="badges badge-success">PURCHASED:</small>
-                                                <span>
-                                                    November 29, 2019 <a class="reply-btn" href="#"><i class="fas fa-reply"></i></a>
-                                                </span>
-                                            </h5>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500.</p>
-                                        </div>
-                                    </div>
-                                    <div class="media replied">
-                                        <div class="user-image"><img src="images/user-thumb/user3.jpg" alt="girl" class="img-fluid"/></div>
-                                        <div class="media-body user-info">
-                                            <h5 class="mb10">Tom Mikee <small class="badges badge-success">Author:</small>
-                                                <span>
-                                                    November 29, 2019 <a class="reply-btn" href="#"><i class="fas fa-reply"></i></a>
-                                                </span>
-                                            </h5>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
 
                                 <div class="rpb-comment-form">
                                     <div class="form-block form-blog mt40">
-                                        <form action="#" method="post" name="#">
+
+                                        <form action="{{ route('comment-store') }}" method="post" name="#">
+                                            @csrf
                                             <div class="fieldsets row">
-                                                <div class="col-md-6"><input type="text" placeholder="Name" name="#" /></div>
-                                                <div class="col-md-6"><input type="email" placeholder="Email" name="#" /></div>
+                                                <div class="col-md-6"><input type="text" placeholder="Name" name="name" /></div>
+                                                <div class="col-md-6"><input type="email" placeholder="Email" name="email" /></div>
                                             </div>
-                                            <div class="fieldsets"><textarea placeholder="Write Your Comment" name="#"></textarea></div>
+                                            <div class="fieldsets"><textarea placeholder="Write Your Comment" name="message"></textarea></div>
                                             <div class="fieldsets mt10">
                                                 <button type="submit" name="#" class="btn-main bg-btn3 lnk">Post Comment <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></button>
                                             </div>
                                         </form>
+
                                     </div>
+                                    @if(Session::has('comment'))
+                                    <div class="alert alert-danger">
+                                    {{ Session::get('buy')}}
+                                    </div>
+                                    @endif
                                 </div>
+
+                                @php
+                               $comments = App\Models\comment::orderBy('id','desc')->get();
+                                @endphp
+
+                                <div class="rpb-commentss comments-block">
+                                    @foreach ($comments as $comment)
+
+
+
+                                    <div class="media replied">
+                                        {{-- <div class="user-image"><img src="frontend/assets/images/user-thumb/user3.jpg" alt="girl" class="img-fluid"/></div> --}}
+                                        <div class="media-body user-info">
+                                            <h5 class="mb10">{{$comment->name  }}<small class="badges badge-success">Author:</small>
+                                                <span>
+                                                    {{ Carbon\Carbon::parse($comment->created_at)->diffForHumans()}}<a class="reply-btn" href="#"><i class="fas fa-reply"></i></a>
+                                                </span>
+                                            </h5>
+                                            <p>{{$comment->message  }}</p>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+
+
                             </div>
 
 
@@ -162,7 +170,7 @@ Appllys Technologies
 
                                     <a href="#">View the item support policy</a>
                                     <div class="btns">
-                                        <a href="#" class=" mt30 btn-main bg-btn3 lnk">Get Support <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
+                                        <a href="{{ route('contact-us') }}" class=" mt30 btn-main bg-btn3 lnk">Get Support <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
                                     </div>
 
                                 </div>
