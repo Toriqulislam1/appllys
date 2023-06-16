@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\product;
 use App\Models\review;
+use App\Models\order;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -13,6 +14,7 @@ class readysoftwareController extends Controller
     public function readysoftware(){
 
         $products = product::all();
+
 
         return view('frontend.software.software_view',compact('products'));
     }//end
@@ -23,7 +25,9 @@ class readysoftwareController extends Controller
 
          $reviews = review::all();
 
-        return view('frontend.software.software_preview',compact('previews','reviews'));
+         $orders = order::all();
+
+        return view('frontend.software.software_preview',compact('previews','reviews','orders'));
     }
     //end
      public function cartView(){
