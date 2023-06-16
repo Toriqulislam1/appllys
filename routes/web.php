@@ -401,6 +401,7 @@ Route::get('profile/order','orderProfile')->name('cus.order.profile');
 Route::controller(commentcontroller::class)->group(function(){
 
     Route::post('comment/store','commentStore')->name('comment-store');
+    Route::post('review/store','reviewStore')->name('review.store');
 
 
     });

@@ -51,53 +51,38 @@ Appllys Technologies
 
                                 <div class="rpb-item-review">
 
+                                    @foreach ($reviews as $review )
+
                                     <div class="reviews-card">
                                         <div class="review-text pt0 pb20">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                            <p>{{ $review->message }}</p>
                                         </div>
                                         <div class="-client-details-">
                                             <div class="-reviewr">
-                                                <img src="images/client/reviewer-c.jpg" alt="Good Review" class="img-fluid">
+                                                {{-- <img src="images/client/reviewer-c.jpg" alt="Good Review" class="img-fluid"> --}}
                                             </div>
                                             <div class="reviewer-text">
                                                 <h4><small>By: </small>Anna Sthesia</h4>
-                                                <p>20 Jan 2021</p>
+                                                <p> {{ Carbon\Carbon::parse($review->created_at)->diffForHumans()}}</p>
                                                 <div class="star-rate">
                                                     <ul>
+
+                                                        @for($i=1; $i<=$review->review; $i++)
+
                                                         <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-                                                        <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-                                                        <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-                                                        <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-                                                        <li> <a href="javascript:void(0)"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+                                                       @endfor
+
+
+
+
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="reviews-card">
-                                        <div class="review-text pt0 pb20">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                        </div>
-                                        <div class="-client-details-">
-                                            <div class="-reviewr">
-                                                <img src="images/client/reviewer-c.jpg" alt="Good Review" class="img-fluid">
-                                            </div>
-                                            <div class="reviewer-text">
-                                                <h4><small>By: </small>Anna Sthesia</h4>
-                                                <p>20 Jan 2021</p>
-                                                <div class="star-rate">
-                                                    <ul>
-                                                        <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-                                                        <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-                                                        <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-                                                        <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-                                                        <li> <a href="javascript:void(0)"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
+
                                 </div>
                             </div>
 
@@ -371,11 +356,11 @@ Appllys Technologies
                                 <div class="container">
                                     <div class="row">
                                        <div class="col mt-4">
-                                          <form class="py-2 px-4" action="" style="box-shadow: 0 0 10px 0 #ddd;" method="POST" autocomplete="off">
+                                          <form class="py-2 px-4" action="{{ route('review.store') }}" style="box-shadow: 0 0 10px 0 #ddd;" method="POST" autocomplete="off">
                                              @csrf
                                              <p class="font-weight-bold ">Review</p>
                                              <div class="form-group row">
-                                                <input type="hidden" name="booking_id" value="">
+                                                <input type="hidden" name="product_id" value="{{ $previews->id }}">
                                                 <div class="col">
                                                    <div class="rate">
                                                       <input type="radio" id="star5" class="rate" name="rating" value="5"/>
@@ -403,6 +388,13 @@ Appllys Technologies
                                           </form>
                                        </div>
                                     </div>
+                                    @if(Session::has('review'))
+                                    <div class="alert alert-danger">
+                                    {{ Session::get('review')}}
+                                    </div>
+                                    @endif
+
+
                                  </div>
 
 
