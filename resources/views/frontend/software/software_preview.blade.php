@@ -354,26 +354,7 @@ Appllys Technologies
          }
 </style>
 
-
-{{-- @php
-   $check = App\Models\order::where('customer_id',Auth()->guard('customer')->user()->id)->get();
-@endphp
-
-
-@if($check->first()->customer_id == Auth()->guard('customer')->user()->id)
-
-<h1>order krse</h1>
-@else
-{{-- @php
-   $check = App\Models\order::where('customer_id',Auth()->guard('customer')->user()->id)->get();
-@endphp --}}
-
-<h1>order kre nai</h1>
-@endif --}}
-
-
-
-                        {{-- @if(Auth()->guard('customer')->user()->id == $orders->customer_id) --}}
+                        @if (Auth::guard('customer')->check())
 
                                 <div class="container">
                                     <div class="row">
@@ -418,9 +399,13 @@ Appllys Technologies
 
 
                                  </div>
-                                 {{-- @else
-                                 <span> no review </span>
-                              @endif --}}
+                                    @else
+                                    <div>
+                                        <span>no review found</span>
+                                    </div>
+
+                                    @endif
+
 
 {{-- end review section --}}
 

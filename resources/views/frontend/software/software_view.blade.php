@@ -31,16 +31,20 @@ Appllys Technologies
                                 <div class="rpb-itm-pric"><span class="offer-prz">{{$product->purchase}}</span> <span class="regular-prz">{{$product->price}}</span></div>
                                 <div class="rpb-tim-rate">
                                     <div class="star-rate">
+
+                                        @php
+                                            $sales = App\Models\order::where('product_id',$product->id)->count();
+                                            $reviews = App\Models\review::where('product_id',$product->id)->avg('review');
+                                        @endphp
                                         <ul>
+                                            @for($i = 1; $i <= $reviews; $i++)
                                             <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-                                            <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-                                            <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-                                            <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-                                            <li> <a href="javascript:void(0)"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+                                            @endfor
+
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="rpb-itm-sale">144 Sales</div>
+                                <div class="rpb-itm-sale">{{ $sales }} Sales </div>
                             </div>
 
                             <div class="rpb-shop-inf-rr">
