@@ -6,8 +6,6 @@ use Illuminate\Console\Command;
 use App\Models\customerLogin;
 use Mail;
 
-
-
 class sendmail extends Command
 {
     /**
@@ -31,21 +29,16 @@ class sendmail extends Command
      */
     public function handle()
     {
-
-        $usermail =  auth()->guard('customer')->customerLogin::select('email')->get();
+        $usermail = customerLogin::select('email')->get();
 
         $emails = [];
 
-        foreach( $usermail as $mail){
-
-            $emails[]= $mail['email'];
+        foreach ($usermail as $mail) {
+            $emails[] = $mail['email'];
         }
 
-            Mail::Send('email.cron',[], function ($message) use( $emails) {
-
-                $message->to($emails)->subject('this is test cron job');
-
-            });
-
+        Mail::send('email.cron', [], function ($message) use ($emails) {
+            $message->to($emails)->subject('this is test cron job');
+        });
     }
 }

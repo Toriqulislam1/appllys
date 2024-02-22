@@ -4,36 +4,40 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use App\Console\Commands\sendmail;
-use App\Console\Commands\SendEmailsCommand;
-use Mail;
+
 class Kernel extends ConsoleKernel
 {
+    /**
+     * The Artisan commands provided by your application.
+     *
+     * @var array
+     */
+    protected $commands = [
+        Commands\SendFollowUpEmails::class,
+        // Add other commands here as needed
+    ];
+
     /**
      * Define the application's command schedule.
      *
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
-
-     protected $commands = [
-        Command\sendMail::class,
-     ];
-
     protected function schedule(Schedule $schedule)
     {
-         $schedule->command('users:sendmail')->cron('* * * * *');
+         $schedule->command('command:name')->cron('* * * * *');
     }
 
     /**
-     * Register the commands for the application.
+     * Register the Closure based commands for the application.
      *
      * @return void
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        // $this->load(__DIR__.'/Commands');
 
-        require base_path('routes/console.php');
+        // Load additional artisan commands from the "Commands" directory
+        // if you have any. Otherwise, you can remove or comment out this method.
     }
 }
