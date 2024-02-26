@@ -69,22 +69,6 @@ Appllys Technologies
             </div>
             @endforeach
         </div>
-
-<div class="row justify-content-center">
-                <div class="col-lg-12">
-
-                    <div class="pagination pagi1">
-<ul>
-<li> <a href="#."> &lt; </a>
-<a class="is-active" href="#">1</a>
-<a href="#.">2</a>
-<a href="#.">3</a>
-<a href="#.">4</a>
-<a href="#."> &gt; </a>
-</li></ul>
-</div>
-                </div></div>
-
     </div>
 </div>
 

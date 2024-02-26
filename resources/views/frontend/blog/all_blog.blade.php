@@ -5,27 +5,27 @@ Technoval BD
 @endsection
 
 
- 
+
 
  <!--Start Blog Grid-->
  <section class="blog-page pad-tb pt30">
     <div class="container">
       <div class="row">
-       
+
       @php
 $blogs = App\Models\Blog::orderBy('id','desc')->get();
 @endphp
-        
+
 @foreach($blogs as $item)
         <div class="col-lg-3 col-sm-6 single-card-item">
           <div class="isotope_item hover-scale">
             <div class="item-image">
               <a href="#"><img src="{{ asset($item->blog_photo)}}" alt="blog" class="img-fluid"/> </a>
-             
+
             </div>
             <div class="item-info blog-info">
               <div class="entry-blog">
-               
+
                 <span class="posted-on">
                 <a href="#"><i class="fas fa-clock"></i> {{ Carbon\Carbon::parse($item->created_at)->diffForHumans()}}</a>
                 </span>
@@ -44,4 +44,3 @@ $blogs = App\Models\Blog::orderBy('id','desc')->get();
   <!--End Blog Grid-->
 
   @endsection
-  

@@ -24,6 +24,7 @@ use App\Http\Controllers\Backend\orderController;
 use App\Http\Controllers\Frontend\readysoftwareController;
 use App\Http\Controllers\Frontend\customerloginController;
 use App\Http\Controllers\Frontend\loginSocialiteController;
+use App\Http\Controllers\Frontend\profileController;
 
 
 
@@ -402,6 +403,16 @@ Route::controller(commentcontroller::class)->group(function(){
 
     Route::post('comment/store','commentStore')->name('comment-store');
     Route::post('review/store','reviewStore')->name('review.store');
+
+
+    });
+
+//user profile
+Route::controller(profileController::class)->group(function(){
+
+    Route::get('user/profile','index')->name('user-profile');
+    Route::get('password/update','passwordUpdate')->name('update_password');
+
 
 
     });
