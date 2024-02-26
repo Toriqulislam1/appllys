@@ -21,7 +21,7 @@ class readysoftwareController extends Controller
 
     public function softwarePreview($id){
 
-         $previews = product::find($id)->first();
+         $previews = product::find($id);
 
          $reviews = review::all();
 

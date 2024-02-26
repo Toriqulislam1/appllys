@@ -25,6 +25,7 @@ return new class extends Migration
             $table->date('Update_date')->nullable();
             $table->string('technology')->nullable();
             $table->string('tag')->nullable();
+            $table->integer('yearly_charge')->nullable();
             $table->string('title');
             $table->string('thumbnail');
             $table->string('short');

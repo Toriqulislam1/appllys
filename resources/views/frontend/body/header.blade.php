@@ -136,8 +136,8 @@ $setting = App\Models\Setting::find(1);
 <!--Start Preloader -->
 <div class="onloadpage" id="page_loader">
     <div class="pre-content">
-         <div class="logo-pre"><img src="{{ asset($setting->logo) }}" alt="Logo" class="img-fluid" /></div> 
-         <div class="pre-text- text-radius text-light text-animation bg-b">Appllys Technologies</div> 
+         <div class="logo-pre"><img src="{{ asset($setting->logo) }}" alt="Logo" class="img-fluid" /></div>
+         <div class="pre-text- text-radius text-light text-animation bg-b">Appllys Technologies</div>
     </div>
 </div>
 <!--End Preloader -->
@@ -147,9 +147,9 @@ $setting = App\Models\Setting::find(1);
     <div class="container-fluid m-pad">
         <div class="menu-header">
             <div class="dsk-logo"><a class="nav-brand" href="{{ url('/')}}">
-                    <img src="{{ asset($setting->logo) }}" alt="Logo" class="mega-white-logo" />
-                    <img src="{{ asset($setting->logo) }}" alt="Logo" class="mega-darks-logo" />
-                </a></div> 
+                    <img style="height: 50px;" src="{{ asset($setting->logo) }}" alt="Logo" class="mega-white-logo" />
+                    <img style="height: 50px;" src="{{ asset($setting->logo) }}" alt="Logo" class="mega-darks-logo" />
+                </a></div>
             <div class="custom-nav" role="navigation">
                 <ul class="nav-list onepge">
                     <li><a href="{{ url('/')}}" class="menu-links">Home</a></li>

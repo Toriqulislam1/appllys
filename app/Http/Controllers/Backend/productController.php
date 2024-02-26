@@ -45,6 +45,7 @@ public function productStore(Request $request){
         'thumbnail' =>  $save_url_thamble,
         'short' => $request->short,
         'long_desp' => $request->long_desp,
+        'yearly_charge' => $request->yearly_charge,
 
 
     ]);
